@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiApp1"
+             x:Class="MauiApp1.MainPage">
+    <Grid>
+        <CollectionView x:Name="ItemsList" SelectionMode="Single" IsGrouped="True">
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate x:DataType="models:TestGroup">
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Title}" FontSize="16" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:TestItem">
+                    <VerticalStackLayout Padding="0, 10, 0, 0">
+                        <Label Text="{Binding Value}" FontSize="12" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.GroupFooterTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="0, 10, 0, 10">
+                        <BoxView />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.GroupFooterTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
